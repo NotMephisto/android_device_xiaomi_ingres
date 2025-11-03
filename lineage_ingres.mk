@@ -10,6 +10,9 @@ $(call inherit-product, device/xiaomi/ingres/device.mk)
 # Inherit from common lineage configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Call the MiuiCamera setup (if it exists)
+$(call inherit-product-if-exists, device/xiaomi/miuicamera-ingres/device.mk)
+
 PRODUCT_NAME := lineage_ingres
 PRODUCT_DEVICE := ingres
 PRODUCT_MANUFACTURER := Xiaomi
