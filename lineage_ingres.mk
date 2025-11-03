@@ -8,12 +8,19 @@
 $(call inherit-product, device/xiaomi/ingres/device.mk)
 
 # Inherit from common lineage configuration
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
 
 # Call the MiuiCamera setup (if it exists)
 $(call inherit-product-if-exists, device/xiaomi/miuicamera-ingres/device.mk)
 
-PRODUCT_NAME := lineage_ingres
+INFINITY_BUILD_TYPE := UNOFFICIAL
+INFINITY_MAINTAINER := "NotMephisto"
+
+TARGET_HAS_UDFPS := false
+
+WITH_GAPPS := true
+
+PRODUCT_NAME := infinity_ingres
 PRODUCT_DEVICE := ingres
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
@@ -26,3 +33,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     SystemName=ingres
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Private signature (include if exists)
+-include vendor/infinity-priv/keys/keys.mk
